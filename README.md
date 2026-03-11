@@ -50,52 +50,39 @@ Write the detailed procedure here
 
 /* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by:MANKANDAN.M RegisterNumber:212224040183
 */
-~~~
 full adder
-
-module fa1_df(sum, cout, a, b, cin);
-    output sum;
-    output cout;
-    input a;
-    input b;
-    input cin;
-
-	 wire w1,w2,w3;
-	 assign w1=a^b;
-	 assign w2=a&b;
-	 assign w3=w1&cin;
-	 assign sum=w1^cin;
-	 assign cout=w2|w3;
+~~~
+module exp4(A,B,C,sum,carry);
+input A,B,C;
+output sum,carry;
+assign sum=A^B^C;
+assign carry=((A&B)|(A&C)|(B&C));
 endmodule
+~~~
 FULL SUBTRACTOR
-
-module fullsub(df, bo, a, b, bin);
-    output df;
-    output bo;
-    input a;
-    input b;
-    input bin;
-	wire w1,w2,w3;
-	 assign w1=a^b;
-	 assign w2=(~a&b);
-	 assign w3=(~w1&bin);
-	 assign df=w1^bin;
-	 assign bo=w2|w3;
-
+~~~
+module exp4a(A,B,C,dif,bor);
+input A,B,C;
+output dif,bor;
+assign dif=A^B^C;
+assign bor=(~A&C)|(~A&B)|(B&C);
 endmodule
 ~~~
 
 **RTL Schematic**
-![exp(4 rtl view)add](https://github.com/user-attachments/assets/0dab5aa6-15bb-4358-9c79-98fcf3d85d48)
+##full adder
+<img width="1026" height="632" alt="image" src="https://github.com/user-attachments/assets/9b50d0a0-3ea3-4e41-a7a6-2d7a5e832a27" />
 
-![exp4](https://github.com/user-attachments/assets/ffe57116-ccee-4b75-8ff6-c49b57dbbcd6)
-
+## full subtractor
+<img width="628" height="431" alt="image" src="https://github.com/user-attachments/assets/bd77b68d-59d5-4885-85b9-13936b8362a2" />
 
 **Output Timing Waveform**
 full adder
-![exp4(add output)](https://github.com/user-attachments/assets/0b349e6c-4eed-4803-b061-971913b9a92e)
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e827ce3c-e861-4940-80bb-78818968e159" />
+
 full sub
-![exp4(output)sub](https://github.com/user-attachments/assets/9dc89732-bc1f-4209-9410-9d2437ffaff1)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b924b448-95d3-4416-946d-2f6c7e3e3b05" />
 
 
 **Result:**
